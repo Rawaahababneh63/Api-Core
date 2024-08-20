@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|c:\\users\\orangee\\desktop\\apitask\\task1\\task1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53D8D17A-DF79-4C13-954B-060ACF4F742C}|Task1\\Task1.csproj|solutionrelative:task1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Task1\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Models\\Product.cs",
+              "RelativeToolTip": "Task1\\Models\\Product.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAzwBMAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T14:36:11.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Task1\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Models\\Category.cs",
+              "RelativeToolTip": "Task1\\Models\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T14:36:46.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Task1\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Task1\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T14:04:32.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Task1\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Task1\\Controllers\\CategoriesController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAmwB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T13:52:17.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "Task1\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\WeatherForecast.cs",
+              "RelativeToolTip": "Task1\\WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T13:48:54.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Program.cs",
+              "RelativeDocumentMoniker": "Task1\\Program.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Program.cs",
+              "RelativeToolTip": "Task1\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAwAAABdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T13:48:16.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Models\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "Task1\\Models\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\Orangee\\Desktop\\ApiTask\\Task1\\Task1\\Models\\MyDbContext.cs",
+              "RelativeToolTip": "Task1\\Models\\MyDbContext.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAswC8AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T13:47:41.487Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
