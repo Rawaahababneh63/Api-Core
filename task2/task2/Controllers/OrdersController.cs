@@ -18,9 +18,9 @@ namespace task2.Controllers
         }
 
         [HttpGet]
-        public IActionResult getAllOrders()
+        public IActionResult GetAllOrders()
         {
-            var Orders = _db.Orders.Include(p => p.OrderDate).ToList();
+            var Orders = _db.Orders.ToList();
             if (Orders == null)
             {
                 return NoContent();

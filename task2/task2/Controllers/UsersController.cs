@@ -15,7 +15,7 @@ namespace task2.Controllers
         }
 
         [HttpGet]
-        public IActionResult getAllUsers()
+        public IActionResult GetAllUsers()
         {
             var Users = _db.Users.ToList();
             if (Users.Any())

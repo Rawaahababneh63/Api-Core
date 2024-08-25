@@ -18,22 +18,60 @@ namespace task2.Controllers
 
 
         [HttpGet]
-        public IEnumerable<Product> GetAllProducts(MyDbContext dd)
+        public IActionResult GetAllProducts()
 
         {
-            var c = dd.Products
-                .Include(e => e.Category)
-                .ToList();
+            var c = _db.Products.ToList();
+               
 
-            return c;
+            return Ok(c);
+        }
+
+        [HttpGet("product/{id}")]
+        public IActionResult GetProductById(int id)
+        {
+            var product = _db.Products.Where(p => p.ProductId == id).Select(p => new
+            {
+                p.ProductId,
+                p.ProductName,
+                p.Description,
+                p.Price,
+                p.ProductImage,
+                Category = new
+                {
+                    p.Category.CategoryId,
+                    p.Category.CategoryName,
+                    p.Category.CategoryImage,
+                }
+            }).FirstOrDefault();
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(product);
+            }
         }
 
 
-        [HttpGet("{id}/{price}")]
 
-        public IActionResult Get(int id, int price)
+
+        //[HttpGet("{id}/{price}")]
+
+        //public IActionResult Get(int id, int price)
+        //{
+        //    var product = _db.Products.Where(c => c.Price > price && c.CategoryId == id).Count();
+
+        //    return Ok(product);
+        //}
+
+        [HttpGet("ProductbyGetCategoryId/{Categoryid}")]
+
+        public IActionResult Get(int Categoryid)
         {
-            var product = _db.Products.Where(c => c.Price > price && c.CategoryId == id).Count();
+            var product = _db.Products.Where(c => c.CategoryId == Categoryid).ToList();
 
             return Ok(product);
         }
@@ -50,6 +88,7 @@ namespace task2.Controllers
 
         }
 
+      
 
         [HttpGet("{name}")]
 
