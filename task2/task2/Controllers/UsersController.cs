@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using task2.DTOs;
 using task2.Models;
 
 namespace task2.Controllers
@@ -78,6 +79,42 @@ namespace task2.Controllers
             _db.Users.Remove(User);
             _db.SaveChanges();
             return NoContent(); // Return the deleted category or a success message
+        }
+        [HttpPost]
+        public IActionResult addUser([FromForm] UpdateUserRequestcs useradd)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var user = new User
+            {
+                Username = useradd.Username,
+                Email = useradd.Email,
+                Password = useradd.Password,
+            };
+
+            _db.Users.Add(user);
+            _db.SaveChanges();
+            return Ok(user);
+
+        }
+
+
+        [HttpPut ("addUser{id}")]
+        public IActionResult addUser(int id,[FromForm] UpdateUserRequestcs useradd)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var updateuser = _db.Users.FirstOrDefault(c => c.UserId == id);
+            _db.Users.Update(updateuser);
+            _db.SaveChanges();
+            return Ok();
+
+
         }
     }
 }

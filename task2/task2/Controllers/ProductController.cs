@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using task2.DTOs;
 using task2.Models;
 
 namespace task2.Controllers
@@ -22,7 +23,7 @@ namespace task2.Controllers
 
         {
             var c = _db.Products.ToList();
-               
+
 
             return Ok(c);
         }
@@ -58,14 +59,14 @@ namespace task2.Controllers
 
 
 
-        //[HttpGet("{id}/{price}")]
+        [HttpGet("GetAllProductDecending")]
 
-        //public IActionResult Get(int id, int price)
-        //{
-        //    var product = _db.Products.Where(c => c.Price > price && c.CategoryId == id).Count();
+        public IActionResult GetAllProductDecending()
+        {
+            var product = _db.Products.OrderByDescending(c => c.Price).ToList();
 
-        //    return Ok(product);
-        //}
+            return Ok(product);
+        }
 
         [HttpGet("ProductbyGetCategoryId/{Categoryid}")]
 
@@ -88,7 +89,7 @@ namespace task2.Controllers
 
         }
 
-      
+
 
         [HttpGet("{name}")]
 
@@ -99,5 +100,35 @@ namespace task2.Controllers
             return Ok(product);
         }
 
+
+
+    //    [HttpPost]
+
+    //    public IActionResult PostPRODUCT([FromForm] Productgetform product)
+    //    {
+    //        if (!ModelState.IsValid)
+    //        {
+    //            return BadRequest();
+    //        }
+
+
+    //        var x = new Product
+    //        {
+    //            Price = product.Price,
+    //            ProductName = product.ProductName,
+    //            ProductImage = product.ProductImage,
+    //            Description = product.Description,
+    //            CategoryId = product.CategoryId,
+
+
+    //        };
+    //        _db.Products.Add(x);
+    //        _db.SaveChanges();
+
+            
+
+
+    //        return Ok(product);
+    //    }
     }
 }
