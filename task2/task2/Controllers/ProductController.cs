@@ -102,33 +102,72 @@ namespace task2.Controllers
 
 
 
-    //    [HttpPost]
+        [HttpPost]
 
-    //    public IActionResult PostPRODUCT([FromForm] Productgetform product)
-    //    {
-    //        if (!ModelState.IsValid)
-    //        {
-    //            return BadRequest();
-    //        }
-
-
-    //        var x = new Product
-    //        {
-    //            Price = product.Price,
-    //            ProductName = product.ProductName,
-    //            ProductImage = product.ProductImage,
-    //            Description = product.Description,
-    //            CategoryId = product.CategoryId,
+        public IActionResult PostPRODUCT([FromForm] ProductRequestDTO product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
 
 
-    //        };
-    //        _db.Products.Add(x);
-    //        _db.SaveChanges();
+            var x = new Product
+            {
+                Price = product.Price,
+                ProductName = product.ProductName,
+                ProductImage = product.ProductImage.FileName,
+                Description = product.Description,
+                CategoryId = product.CategoryId,
 
-            
+
+            };
+            var ImagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+            if (!Directory.Exists(ImagesFolder))
+            {
+                Directory.CreateDirectory(ImagesFolder);
+            }
+            var imageFile = Path.Combine(ImagesFolder, product.ProductImage.FileName);
+            using (var stream = new FileStream(imageFile, FileMode.Create))
+            {
+                product.ProductImage.CopyToAsync(stream);
+            }
+            _db.Products.Add(x);
+            _db.SaveChanges();
+
+            return Ok(x);
+        }
 
 
-    //        return Ok(product);
-    //    }
+
+
+
+        [HttpPut("UpdateProductbyProductid{id}")]
+        public IActionResult UPDATE([FromForm] ProductRequestDTO proDto, int id)
+        {
+            var c = _db.Products.FirstOrDefault(l => l.ProductId == id);
+            c.ProductName = proDto.ProductName;
+            c.ProductImage = proDto.ProductImage.FileName;
+            c.Description= proDto.Description;
+            c.Price= proDto.Price;
+            c.CategoryId= proDto.CategoryId;
+            var ImagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+            if (!Directory.Exists(ImagesFolder))
+            {
+                Directory.CreateDirectory(ImagesFolder);
+            }
+            var imageFile = Path.Combine(ImagesFolder, proDto.ProductImage.FileName);
+            using (var stream = new FileStream(imageFile, FileMode.Create))
+            {
+                proDto.ProductImage.CopyToAsync(stream);
+            }
+
+            _db.Products.Update(c);
+            _db.SaveChanges();
+            return Ok(c);
+
+
+        }
+
     }
 }

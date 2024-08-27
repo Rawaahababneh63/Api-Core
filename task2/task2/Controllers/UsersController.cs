@@ -116,5 +116,71 @@ namespace task2.Controllers
 
 
         }
+
+        //هاد حل شات جي بيتي
+        //[HttpGet("calculate")]
+        //public IActionResult Calculate([FromQuery] string expression)
+        //{
+        //    // التحقق من نوع العملية (جمع أو طرح)
+        //    char operation = expression.Contains('+') ? '+' : expression.Contains('-') ? '-' : '\0';
+
+        //    if (operation == '\0')
+        //    {
+        //        return BadRequest("يجب أن يحتوي التعبير على علامة + أو -.");
+        //    }
+
+        //    // تقسيم النص بناءً على العملية المحددة
+        //    var parts = expression.Split(operation);
+
+        //    // التحقق من أن هناك جزءين صحيحين يمكن تحويلهما إلى أرقام صحيحة
+        //    if (parts.Length != 2 ||
+        //        !int.TryParse(parts[0], out int num1) ||
+        //        !int.TryParse(parts[1], out int num2))
+        //    {
+        //        return BadRequest("تنسيق المدخل غير صحيح. استخدم 'number1+number2' أو 'number1-number2'.");
+        //    }
+
+        //    // إجراء العملية الحسابية بناءً على نوع العملية
+        //    int result = operation == '+' ? num1 + num2 : num1 - num2;
+
+        //    // إرجاع النتيجة
+        //    return Ok(result);
+        //}
+
+        [HttpGet("math")]
+        public IActionResult Math(string input)
+        {
+            var x = input.Split(' ');
+
+            var num1 = Convert.ToDouble(x[0]);
+            var op = x[1];
+            var num2 = Convert.ToDouble(x[2]);
+
+            double result = 0;
+
+            switch (op)
+            {
+                case ("+"):
+                    result = num1 + num2;
+                    break;
+                case ("-"):
+                    result = num1 - num2;
+                    break;
+                case ("*"):
+                    result = num1 * num2;
+                    break;
+                case ("/"):
+                    if (num2 == 0)
+                    {
+                        return BadRequest("can't devide on zero");
+                    }
+                    else
+                    {
+                        result = num1 / num2;
+                        break;
+                    }
+            }
+            return Ok(result);
+        }
     }
 }

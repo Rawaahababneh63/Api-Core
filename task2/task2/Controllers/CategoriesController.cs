@@ -85,7 +85,7 @@ namespace task2.Controllers
             return Ok();
         }
 
-        [HttpPut("UpdateProductbyProductid{id}")]
+        [HttpPut("UpdateCategorybyCategoryid{id}")]
         public IActionResult UPDATE([FromForm]  categoryRequestDTO categDto, int id)
         {
             var c = _db.Categories.FirstOrDefault(l => l.CategoryId == id);
