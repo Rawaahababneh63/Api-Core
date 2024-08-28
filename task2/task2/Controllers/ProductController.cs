@@ -111,7 +111,6 @@ namespace task2.Controllers
                 return BadRequest();
             }
 
-
             var x = new Product
             {
                 Price = product.Price,
@@ -148,9 +147,9 @@ namespace task2.Controllers
             var c = _db.Products.FirstOrDefault(l => l.ProductId == id);
             c.ProductName = proDto.ProductName;
             c.ProductImage = proDto.ProductImage.FileName;
-            c.Description= proDto.Description;
-            c.Price= proDto.Price;
-            c.CategoryId= proDto.CategoryId;
+            c.Description = proDto.Description;
+            c.Price = proDto.Price;
+            c.CategoryId = proDto.CategoryId;
             var ImagesFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
             if (!Directory.Exists(ImagesFolder))
             {
@@ -168,6 +167,33 @@ namespace task2.Controllers
 
 
         }
+        //[HttpGet ("Calculate")]
+        //public IActionResult process(int n, int x)
+        //{
+
+        //    if ((n + x) == 30 || n == 30 || x == 30)
+        //    {
+        //        return Ok(true);
+        //    }
+        //    return Ok(false);
+        //}
+
+
+        //[HttpGet("Compararing")]
+        //public IActionResult process(int n) {
+
+        //    if (n > 0)
+        //    {
+        //        if (n % 3 == 0 || n % 7 == 0)
+        //        {
+        //            return Ok(true);
+        //        }
+        //    }
+        //    return Ok(false);
+
+
+        //} 
+
+        }
 
     }
-}
