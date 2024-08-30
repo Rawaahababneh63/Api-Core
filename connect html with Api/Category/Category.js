@@ -22,6 +22,7 @@ result.forEach(element => {
 
       <button onClick="store(${element.categoryId})">store data</button>
       <button onClick="stores(${element.categoryId})">next page</button>
+      <button onClick="editCategory(${element.categoryId})">editCategory</button>
      
     </div>
   </div>
@@ -75,8 +76,19 @@ localStorage.clear();
 
 
 function stores(x) {
-  localStorage.setItem=(" CategoryId" , localStorage.categoryId=x);
+  localStorage.setItem=(" CategoryId" ,x);
     window.location.href = '../Product/product.html';
    }
+   function editCategory(x) {
+    localStorage.setItem=(" CategoryId" , localStorage.categoryId=x);
+      window.location.href = '../EditCategory/editcategory.html';
+     }
 
+     function SaveId() {
+      localStorage.PID=1;
+      localStorage.CartID=1;
+      
+     }
+
+ 
 GetCategories();

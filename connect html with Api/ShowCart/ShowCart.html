@@ -1,27 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -249,8 +226,11 @@ result.forEach(element => {
                       <tr>
                         <th scope="row">${element.cartId}</th>
                         <td>${element.product.productName}</td>
-                        <td><img src="${element.quantity}"></td>
-                         <td><a href="#" onclick="editCategory(${element.cartId})">Edit</a></td>
+                        <td><input type="number" id="cartidQuantity" placeholder="${element.quantity}"></td>
+                         <td><button  onclick="editCartQuantity(${element.cartItemId})">Edit</td>
+                         <td><button  onclick="deleteCartQuantity(${element.cartItemId})">Delete</td>
+
+
                       </tr>
                  
               `
@@ -258,52 +238,56 @@ result.forEach(element => {
 
 }); }
 
+
+
+async function editCartQuantity(id) {
+        let url1 = `https://localhost:44329/api/CartItem/UpdateCartbyCartid${id}`;
+        var cartItemID = document.getElementById("cartidQuantity");
+        var object = {
+            cartItemId: id,
+            quantity: cartItemID.value,
+        };
+        let request = await fetch(url1, {
+          method: "PUT",
+          body: JSON.stringify(object),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        alert("Item Edited Successfully!");
+      }
+
+
+
+
+      async function deleteCartQuantity(id) {
+        let url1 = `https://localhost:44329/api/CartItem/DeleteItem/${id}`;
+        var cartItemID = document.getElementById("cartidQuantity");
+        var object = {
+            cartItemId: id,
+        };
+        let request = await fetch(url1, {
+          method: "Delete",
+       
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        alert("Item Deleted Successfully!");
+      }
+
+
+
+
+
+
+
+
+
+
+
+
 showCart();
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <button id="SaveId" onclick="SaveId()">Saveto local</button>
-    <button onclick="addToCart()">اضافة للسلة</button>
-    <input type="number" id="inputQutity">
-
-    <script>
-
-
-function SaveId() {
- 
-      localStorage.cartId=1;
-      
-     }
-
-  
-   
-    </script>
-</body>
-</html> -->

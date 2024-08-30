@@ -97,13 +97,35 @@ private MyDbContext _db;
 
 
 
+        [HttpPut("UpdateCartbyCartid{id}")]
+        public IActionResult UPDATECART([FromBody] CartUPdateREquest cartDto, int id)
+        {
+            var c = _db.CartItems.Find(id);
+            c.Quantity = cartDto.Quantity;
+      
+            _db.CartItems.Update(c);
+            _db.SaveChanges();
+            return Ok();
+        }
 
 
 
+        [Route("DeleteItem/{id}")]
+        [HttpDelete]
+        public IActionResult DeleteFromCart(int id)
+        {
+            if (id <= 0) { return BadRequest(); }
 
+            var y = _db.CartItems.Find(id);
+            if (y == null)
+            {
+                return NotFound();
+            }
+            _db.CartItems.Remove(y);
+            _db.SaveChanges();
+            return NoContent();
 
-
-
+        }
 
 
 

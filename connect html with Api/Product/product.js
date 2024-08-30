@@ -1,3 +1,4 @@
+
 var n = Number(localStorage.getItem("categoryId"));
 console.log(n);
 var url;
@@ -5,10 +6,10 @@ var url;
 if ( n==0) {
     url = 'https://localhost:44329/api/Product';
 } else {
-    url = `https://localhost:44329/api/Product/ProductbyGetCategoryId/${n}`;
+    url = `https://localhost:44329/api/Categories/UpdateCategorybyCategoryid${n}`;
 }
 
-async function GetCategories() {
+async function GetProduct() {
     var response = await fetch(url);
     var result = await response.json();
 
@@ -23,6 +24,9 @@ async function GetCategories() {
                     <h5 class="card-title">${element.productName}</h5>
                     <p class="card-text">${element.categoryId}</p>
                     <button onClick="store(${element.productId})">عرض التفاصيل</button>
+                       <button onClick="addproduct(${element.productId})">اضافة المنتجات</button>
+                          <button onClick="editproduct(${element.productId})">تعديل المنتجات</button>
+                          <button onClick="addToCart(${element.productId})">اضافة للسلة</button>
                 </div>
             </div>
             <br><br>
@@ -34,5 +38,15 @@ function store(x) {
     localStorage.setItem('productId', x);
     window.location.href = 'details.html'; 
 }
-
-GetCategories();
+function editproduct(x) {
+    localStorage.setItem('productId', x);
+    window.location.href = '../editProduct/editproduct.html'; 
+}
+function addproduct(x) {
+    localStorage.setItem('productId', x);
+    window.location.href = '../AddProduct/AddProduct.html'; 
+}
+function addToCart(){
+    window.location.href='';
+}
+GetProduct();

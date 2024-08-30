@@ -19,6 +19,9 @@ async function GetCategories() {
                     <h5 class="card-title">${result.productName}</h5>
                     <p class="card-text">${result.categoryId}</p>
                     <p class="card-text">${result.description}</p>
+                      
+                        <input type="number" id="inputQutity">
+  <button onclick="addToCart()">اضافة للسلة</button> 
                 </div>
             </div>
 
@@ -29,3 +32,25 @@ async function GetCategories() {
 }
 
 GetCategories();
+
+const urlofCart='https://localhost:44329/api/CartItem';
+
+async function addToCart() {debugger
+var Quntity=document.getElementById("inputQutity");
+   var request=await fetch(urlofCart,
+   {
+     method:'POST',
+     headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({
+       
+        cartId:localStorage.cartId=1,
+productId:localStorage.getItem("productId"),
+quantity:Quntity.value
+     })
+
+    
+   }
+)
+
+alert("Item Add Successfully");
+}
