@@ -28,6 +28,21 @@ namespace task2.Controllers
             return Ok(c);
         }
 
+        
+
+        [HttpGet ("GETProductby5LAST")]
+        public IActionResult GetAllProductsoORDERE()
+
+        {
+            
+         //  var c = _db.Products.OrderBy(i=>i.ProductName).Reverse().Take(5).Reverse();
+
+            var soso = _db.Products.OrderBy(i => i.ProductName).ToList().TakeLast(5);
+
+
+            return Ok(soso);
+        }
+
         [HttpGet("product/{id}")]
         public IActionResult GetProductById(int id)
         {

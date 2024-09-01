@@ -64,6 +64,7 @@ namespace task2.Controllers
             {
                 CategoryName = category.CategoryName,
                 //هون الكوتش راحت جابت  اسم الفولدر يلي أنشأته 
+
                 CategoryImage = category.CategoryImage.FileName
             };
 

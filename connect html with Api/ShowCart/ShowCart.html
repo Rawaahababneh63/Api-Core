@@ -226,7 +226,7 @@ result.forEach(element => {
                       <tr>
                         <th scope="row">${element.cartId}</th>
                         <td>${element.product.productName}</td>
-                        <td><input type="number" id="cartidQuantity" placeholder="${element.quantity}"></td>
+                        <td><input type="number" id="cartidQuantity-${element.cartItemId}" placeholder="${element.quantity}"></td>
                          <td><button  onclick="editCartQuantity(${element.cartItemId})">Edit</td>
                          <td><button  onclick="deleteCartQuantity(${element.cartItemId})">Delete</td>
 
@@ -242,7 +242,12 @@ result.forEach(element => {
 
 async function editCartQuantity(id) {
         let url1 = `https://localhost:44329/api/CartItem/UpdateCartbyCartid${id}`;
-        var cartItemID = document.getElementById("cartidQuantity");
+
+
+
+        var cartItemID = document.getElementById(`cartidQuantity-${id}`);
+
+        debugger
         var object = {
             cartItemId: id,
             quantity: cartItemID.value,
@@ -262,10 +267,10 @@ async function editCartQuantity(id) {
 
       async function deleteCartQuantity(id) {
         let url1 = `https://localhost:44329/api/CartItem/DeleteItem/${id}`;
-        var cartItemID = document.getElementById("cartidQuantity");
-        var object = {
-            cartItemId: id,
-        };
+        // var cartItemID = document.getElementById("cartidQuantity");
+        // var object = {
+        //     cartItemId: id,
+        // };
         let request = await fetch(url1, {
           method: "Delete",
        

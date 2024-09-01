@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using task2.DTOs;
 using task2.Models;
@@ -81,7 +82,7 @@ namespace task2.Controllers
             return NoContent(); // Return the deleted category or a success message
         }
         [HttpPost]
-        public IActionResult addUser([FromForm] UpdateUserRequestcs useradd)
+        public IActionResult addUser([FromForm] UserRequestcs useradd)
         {
             if (!ModelState.IsValid)
             {
@@ -102,7 +103,7 @@ namespace task2.Controllers
 
 
         [HttpPut ("addUser{id}")]
-        public IActionResult addUser(int id,[FromForm] UpdateUserRequestcs useradd)
+        public IActionResult addUser(int id,[FromForm] UserRequestcs useradd)
         {
 
             if (!ModelState.IsValid)
@@ -182,5 +183,62 @@ namespace task2.Controllers
             }
             return Ok(result);
         }
+
+        [HttpPost("register")]
+        public IActionResult AddPassword([FromForm] UserRequestcs userdto)
+        {
+            byte[] passwordHash, passwordSalt;
+            PasswordHasherNew.createPasswordHash(userdto.Password, out passwordHash, out passwordSalt);
+            User user = new User
+            {Email = userdto.Email,
+            Password=userdto.Password,
+                Username = userdto.Username,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt
+            };
+            _db.Users.AddAsync(user);
+            _db.SaveChanges();
+            //For Demo Purpose we are returning the PasswordHash and PasswordSalt
+            return Ok(user);
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login( [FromForm] UserRequestcs model)
+        {
+            var user = _db.Users.FirstOrDefault(x => x.Email == model.Email);
+            if (user == null || !PasswordHasherNew.VerifyPasswordHash(model.Password, user.PasswordHash, user.PasswordSalt))
+            {
+                return Unauthorized("Invalid username or password.");
+            }
+            return Ok("User logged in successfully");
+        }
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
