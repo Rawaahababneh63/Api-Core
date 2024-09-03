@@ -135,3 +135,4 @@ C:\Users\Orangee\Desktop\ApiCoreTask\Api-Core\task2\task2\obj\Debug\net8.0\refin
 C:\Users\Orangee\Desktop\ApiCoreTask\Api-Core\task2\task2\obj\Debug\net8.0\task2.pdb
 C:\Users\Orangee\Desktop\ApiCoreTask\Api-Core\task2\task2\obj\Debug\net8.0\task2.genruntimeconfig.cache
 C:\Users\Orangee\Desktop\ApiCoreTask\Api-Core\task2\task2\obj\Debug\net8.0\ref\task2.dll
+C:\Users\Orangee\Desktop\ApiCoreTask\Api-Core\task2\task2\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

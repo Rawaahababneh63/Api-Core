@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using task2.DTOs;
@@ -17,8 +18,9 @@ namespace task2.Controllers
             _db = db;
         }
 
-
+       
         [HttpGet]
+        [Authorize]
         public IActionResult GetAllProducts()
 
         {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <form style="margin: 20px auto; max-width: 400px; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+    <div class="form-group">
+        <label for="GetID" style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px; display: block;">Your ID:</label>
+        <input type="number" class="form-control" id="GetID" placeholder="Enter Your ID" onchange="GetData()" style="border-radius: 5px; padding: 10px; font-size: 1em;">
+    </div>
+
+    <div id="container" style="width:35rem; margin: 20px auto; padding: 15px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center;">
+        <!-- Data will be displayed here -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv0ELpInwYrgHPyTirrguflzr41CZKqeN0hA&s" alt="Placeholder Image" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+        <p>Your data will appear here after entering your ID.</p>
+    </div>
+</form>
+
+
+<script>
+   
+async function GetData(){ debugger;
+    var data=document.getElementById('GetID').value;
+    const url=`https://localhost:44329/api/Users/GetUserById/${data}`;
+    const response =await fetch(url);
+    var result = await response.json();
+    var container = document.getElementById('container');
+
+
+    container.innerHTML = `
+    <div style="padding: 15px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">UserName: <span style="font-weight: normal;">${result.username}</span></p>
+        <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Password: <span style="font-weight: normal;">${result.password}</span></p>
+        <p style="font-weight: bold; font-size: 1.2em; margin-bottom: 10px;">Email: <span style="font-weight: normal;">${result.email}</span></p>
+    </div>
+`;
+
+}
+</script>
+</body>
+</html>

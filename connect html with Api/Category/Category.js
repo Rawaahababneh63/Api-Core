@@ -68,8 +68,9 @@ result.forEach(element => {
 
 
 function store(x) {
+// لحذف اشي معين من localstorage
+  localStorage.removeItem('categoryId');
 
-localStorage.clear();
     window.location.href = '../Product/product.html';
 ;
 }

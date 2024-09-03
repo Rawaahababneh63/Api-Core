@@ -6,11 +6,23 @@ var url;
 if ( n==0) {
     url = 'https://localhost:44329/api/Product';
 } else {
-    url = `https://localhost:44329/api/Categories/UpdateCategorybyCategoryid${n}`;
+    url = `https://localhost:44329/api/Product/ProductbyGetCategoryId/${n}`;
 }
 
 async function GetProduct() {
-    var response = await fetch(url);
+    debugger;
+    var token =localStorage.getItem('jwtToken');
+    if(token==null){
+        alert("PLZ Login First")
+    }
+    var response = await fetch(url,  {
+        method : "GET",
+        // "Content-Type": "application/json",
+   headers:{'Authorization': `Bearer ${token}`} ,
+
+      
+
+});
     var result = await response.json();
 
     var container = document.getElementById('container');

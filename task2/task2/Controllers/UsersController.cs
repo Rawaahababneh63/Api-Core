@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using task2.DTOs;
 using task2.Models;
 
@@ -11,9 +12,11 @@ namespace task2.Controllers
     public class UsersController : ControllerBase
     {
         private readonly MyDbContext _db;
-        public UsersController(MyDbContext db)
+        private readonly TokenGenerator _tokenGenerator;
+        public UsersController(MyDbContext db, TokenGenerator tokenGenerator)
         {
             _db = db;
+            _tokenGenerator = tokenGenerator;
         }
 
         [HttpGet]
@@ -102,8 +105,8 @@ namespace task2.Controllers
         }
 
 
-        [HttpPut ("addUser{id}")]
-        public IActionResult addUser(int id,[FromForm] UserRequestcs useradd)
+        [HttpPut("addUser{id}")]
+        public IActionResult addUser(int id, [FromForm] UserRequestcs useradd)
         {
 
             if (!ModelState.IsValid)
@@ -190,8 +193,8 @@ namespace task2.Controllers
             byte[] passwordHash, passwordSalt;
             PasswordHasherNew.createPasswordHash(userdto.Password, out passwordHash, out passwordSalt);
             User user = new User
-            {Email = userdto.Email,
-            Password=userdto.Password,
+            { Email = userdto.Email,
+                Password = userdto.Password,
                 Username = userdto.Username,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
@@ -203,18 +206,33 @@ namespace task2.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login( [FromForm] UserRequestcs model)
+        public IActionResult Login([FromBody] UserRequestcs model)
         {
             var user = _db.Users.FirstOrDefault(x => x.Email == model.Email);
             if (user == null || !PasswordHasherNew.VerifyPasswordHash(model.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return Unauthorized("Invalid username or password.");
             }
-            return Ok("User logged in successfully");
+
+
+            var roles = _db.UserRoles.Where(x => x.UserId == user.UserId).Select(ur => ur.Role).ToList();
+            var token = _tokenGenerator.GenerateToken(user.Email, roles);
+
+            return Ok(new { Token = token });
+
+            //return Ok("User logged in successfully");
         }
-      
 
-
+        //problem solving
+        //[HttpPost("ODDNUMBER")]
+        //public IActionResult repeatodd([FromForm] int[]arrary)
+        //{
+        //    var oddcountrpeat = arrary.GroupBy(x => x)
+        //                  .Where(g => g.Count() % 2 != 0)
+        //                  .Select(g => g.Key)
+        //                  .ToList();
+        //    return Ok(oddcountrpeat);
+        //}
 
 
 
